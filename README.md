@@ -1,4 +1,4 @@
-# 🧠 TubeSage — Chat With Any YouTube Video Using RAG
+# TubeSage — Chat With Any YouTube Video Using RAG
 
 TubeSage lets you **ask questions about a YouTube video's content** and get answers
 grounded strictly in that video's transcript — no hallucinated facts, no guessing.
@@ -10,46 +10,46 @@ LangChain, OpenAI, and FAISS.
 
 ---
 
-## ✨ Features
+##  Features
 
-- 🎬 **Works on any YouTube video with captions** (auto-generated or manual)
-- 🔍 **Semantic search** over the transcript using FAISS vector store
-- 💬 **Grounded Q&A** — answers only from the transcript, says "I don't know" otherwise
-- 📝 **One-command summarization**
-- 🖥️ **CLI with interactive chat mode**
-- 🧩 **Clean, modular pipeline** you can reuse in your own apps (importable as a library)
+-  **Works on any YouTube video with captions** (auto-generated or manual)
+-  **Semantic search** over the transcript using FAISS vector store
+-  **Grounded Q&A** — answers only from the transcript, says "I don't know" otherwise
+-  **One-command summarization**
+-  **CLI with interactive chat mode**
+-  **Clean, modular pipeline** you can reuse in your own apps (importable as a library)
 
 ---
 
-## 🏗️ How It Works (RAG Pipeline)
+##  How It Works (RAG Pipeline)
 
 ```
 YouTube Video ID
        │
        ▼
 ┌─────────────────┐
-│ 1. Transcript    │  youtube-transcript-api fetches captions
-│    Loader        │
-└────────┬─────────┘
+│ 1. Transcript   │  youtube-transcript-api fetches captions
+│    Loader       │
+└────────┬────────┘
          ▼
 ┌─────────────────┐
-│ 2. Text Splitter │  RecursiveCharacterTextSplitter
-│   (chunking)      │  chunk_size=1000, overlap=200
-└────────┬─────────┘
+│ 2. Text Splitter│  RecursiveCharacterTextSplitter
+│   (chunking)    │  chunk_size=1000, overlap=200
+└────────┬────────┘
          ▼
 ┌─────────────────┐
-│ 3. Embeddings +  │  OpenAIEmbeddings → FAISS vector store
-│    Vector Store   │
-└────────┬─────────┘
+│ 3. Embeddings + │  OpenAIEmbeddings → FAISS vector store
+│    Vector Store │
+└────────┬────────┘
          ▼
 ┌─────────────────┐
-│ 4. Retriever      │  similarity search, top-k relevant chunks
-└────────┬─────────┘
+│ 4. Retriever    │  similarity search, top-k relevant chunks
+└────────┬────────┘
          ▼
 ┌─────────────────┐
-│ 5. Prompt +       │  context + question → PromptTemplate
-│    LLM (GPT-4o-mini)│ → grounded answer
-└────────┬─────────┘
+│ 5. Prompt +     │  context + question → PromptTemplate
+│LLM (GPT-4o-mini)│ → grounded answer
+└────────┬────────┘
          ▼
      Your Answer
 ```
@@ -58,7 +58,7 @@ This is the standard **Index → Retrieve → Augment → Generate** RAG pattern
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 tubesage/
@@ -77,7 +77,7 @@ tubesage/
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### 1. Clone the repository
 
@@ -113,7 +113,7 @@ Then edit `.env`:
 OPENAI_API_KEY=sk-your-real-key-here
 ```
 
-> ⚠️ **Never commit your `.env` file.** It's already excluded via `.gitignore`.
+
 > Get a key at https://platform.openai.com/api-keys
 
 ---
@@ -190,7 +190,7 @@ print(rag.summarize())
 
 ---
 
-## ⚠️ Notes & Limitations
+##  Notes & Limitations
 
 - Only works on videos that have captions/subtitles available.
 - Answers are limited to what's actually said in the video — TubeSage will not
@@ -199,13 +199,8 @@ print(rag.summarize())
 
 ---
 
-## 📄 License
 
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-## 🙋 Author
+## Author
 
 Built as a learning project to demonstrate a practical RAG pipeline using
 LangChain, OpenAI, and FAISS. Feedback and PRs welcome!
