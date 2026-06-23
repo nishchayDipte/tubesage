@@ -118,7 +118,7 @@ OPENAI_API_KEY=sk-your-real-key-here
 
 ---
 
-## 🧑‍💻 Usage
+##  Usage
 
 ### Interactive chat mode
 
@@ -166,7 +166,7 @@ print(rag.summarize())
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Component        | Tool                                   |
 |-------------------|-----------------------------------------|
@@ -179,7 +179,7 @@ print(rag.summarize())
 
 ---
 
-## 🔮 Future Improvements
+## Future Improvements
 
 - [ ] Support multiple videos / playlists in one knowledge base
 - [ ] Add a Streamlit / Gradio web UI
